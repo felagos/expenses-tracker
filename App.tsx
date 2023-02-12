@@ -1,9 +1,12 @@
-import { View } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { AppNavigator } from './src/navigator';
 
 export default function App() {
   return (
-    <View>
-    </View>
+    <>
+      <StatusBar style="auto" />
+      <AppNavigator />
+    </>
   );
 }
 
