@@ -11,12 +11,34 @@ const Stack = createNativeStackNavigator();
 const BottomTabs = createBottomTabNavigator();
 
 interface Icon {
-	name: any;
 	color: string;
 	size: number;
 }
 
-const getIcon = ({ color, name, size }: Icon) => <Ionicons name={name} size={size} color={color} />;
+interface BottomIcon extends Icon {
+	name?: keyof typeof Ionicons.glyphMap;
+}
+
+const getIcon = ({ color, name, size }: BottomIcon) => <Ionicons name={name} size={size} color={color} />;
+
+const getTabOptions = (screen: Screens) => {
+	switch (screen) {
+	case Screens.RecentExpenses:
+		return {
+			title: "Recent Expenses",
+			tabBarLabel: "Recent",
+			tabBarIcon: ({ color, size }: Icon) => getIcon({ color, size, name: "hourglass" })
+		};
+	case Screens.AllExpenses:
+		return {
+			title: "All Expenses",
+			tabBarLabel: "All Recent",
+			tabBarIcon: ({ color, size }: Icon) => getIcon({ color, size, name: "calendar" })
+		};
+	default:
+		return {};
+	}
+};
 
 const ExpensesOverview = () => (
 	<BottomTabs.Navigator screenOptions={{
@@ -28,20 +50,12 @@ const ExpensesOverview = () => (
 		<BottomTabs.Screen
 			name={Screens.RecentExpenses}
 			component={RecentExpenseScreen}
-			options={{
-				title: "Recent Expenses",
-				tabBarLabel: "Recent",
-				tabBarIcon: ({ color, size }) => getIcon({ color, size, name: "hourglass" })
-			}}
+			options={getTabOptions(Screens.RecentExpenses)}
 		/>
-		<BottomTabs.Screen 
-			name={Screens.AllExpenses} 
-			component={AllExpensesScreen} 
-			options={{
-				title: "All Expenses",
-				tabBarLabel: "All Recent",
-				tabBarIcon: ({ color, size }) => getIcon({ color, size, name: "calendar" })
-			}}
+		<BottomTabs.Screen
+			name={Screens.AllExpenses}
+			component={AllExpensesScreen}
+			options={getTabOptions(Screens.AllExpenses)}
 		/>
 	</BottomTabs.Navigator>
 );
