@@ -1,7 +1,7 @@
-import { Text } from 'react-native';
+import { Text } from "react-native";
 
 export const RecentExpenseScreen = () => {
-  return (
-    <Text>AllExpensesScreen</Text>
-  );
+	return (
+		<Text>AllExpensesScreen</Text>
+	);
 };

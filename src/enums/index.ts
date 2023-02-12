@@ -1,1 +1,1 @@
-export * from './screens.enum';
+export * from "./screens.enum";
