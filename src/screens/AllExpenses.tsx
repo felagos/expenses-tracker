@@ -1,7 +1,7 @@
-import { Text } from "react-native";
+import { ExpensesOutput } from "../components";
 
 export const AllExpensesScreen = () => {
 	return (
-		<Text>AllExpensesScreen</Text>
+		<ExpensesOutput expensesPeriod="Total" />
 	);
 };
