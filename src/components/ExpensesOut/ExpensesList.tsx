@@ -9,7 +9,7 @@ interface Props {
 export const ExpensesList = ({ expenses }: Props) => {
 
 	const renderItems = ({ item }: { item: Expense }) => (
-		<Text>{item.amount}</Text>
+		<Text>{item.description}</Text>
 	);
 
 	const keyExtractor = (item: Expense) => item.id;
