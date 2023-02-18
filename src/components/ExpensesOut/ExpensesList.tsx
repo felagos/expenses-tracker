@@ -1,6 +1,7 @@
-import { FlatList, Text } from "react-native";
+import { FlatList } from "react-native";
 
 import { Expense } from "../../models";
+import { ExpenseItem } from "./ExpenseItem";
 
 interface Props {
 	expenses: Expense[];
@@ -9,7 +10,7 @@ interface Props {
 export const ExpensesList = ({ expenses }: Props) => {
 
 	const renderItems = ({ item }: { item: Expense }) => (
-		<Text>{item.description}</Text>
+		<ExpenseItem expense={item} />
 	);
 
 	const keyExtractor = (item: Expense) => item.id;

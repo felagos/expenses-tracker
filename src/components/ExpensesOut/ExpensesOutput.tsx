@@ -1,6 +1,6 @@
 import { StyleSheet, View } from "react-native";
-import { Colors } from "../../constants";
 
+import { Colors } from "../../constants";
 import { Expense } from "../../models";
 import { ExpensesList } from "./ExpensesList";
 import { ExpensesSummary } from "./ExpensesSummary";
@@ -32,7 +32,7 @@ const DUMMY_DATA = [
 	{
 		id: "4",
 		description: "Test 4",
-		amount: 19.19,
+		amount: 19000.19,
 		date: new Date("2022-01-01")
 	},
 	{
